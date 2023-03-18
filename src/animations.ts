@@ -29,20 +29,29 @@ export const bandeirasWordAnimation = {
   },
 }
 
-export const buttonsAnimation = {
+export const buttonsDivAnimation = {
   init: {
     opacity: 0,
-    scale: 0.935,
   },
   final: {
     opacity: 1,
+    transition: {
+      duration: 0.7,
+      delay: 0.4,
+    },
+  },
+}
+
+export const buttonsAnimation = {
+  init: {
+    scale: 0.935,
+  },
+  final: {
     scale: 1,
     transition: {
-      duration: 0.5,
-      delay: 0.4,
+      duration: 0.7,
       type: "tween",
       stiffness: 200,
-      // repeat: Infinity,
       mass: 1200,
     },
   },
@@ -60,7 +69,7 @@ export const fromSidesAnimation = (from: "left" | "right") => {
       left: 0,
       opacity: 1,
       transition: {
-        duration: 0.35,
+        duration: 0.5,
         type: "tween",
       },
     },
@@ -75,8 +84,8 @@ export const fromBottomSoft = {
     opacity: 1,
     bottom: 0,
     transition: {
-      duration: 0.5,
-      delay: 0.2,
+      duration: 0.7,
+      delay: 0.4,
     }
   }
 }

@@ -1,9 +1,9 @@
 import {
   FacebookSquare as Facebook,
   Instagram,
-  Whatsapp,
+  Whatsapp
 } from "@styled-icons/boxicons-logos"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { type NextPage } from "next"
 import Head from "next/head"
 import Image from "next/image"
@@ -12,7 +12,7 @@ import {
   bandeirasWordAnimation,
   buttonsAnimation,
   fromBottomSoft,
-  fromSidesAnimation,
+  fromSidesAnimation
 } from "~/animations"
 import { bandeirasTitleArray } from "~/texts"
 
@@ -31,18 +31,16 @@ const Home: NextPage = () => {
         "
         />
       </Head>
-      <main className="bg-02 relative flex items-center justify-center overflow-y-auto overflow-x-hidden bg-black">
+      <main className="bg-03 relative flex items-center justify-center overflow-y-auto overflow-x-hidden bg-black">
         <div
           className="absolute top-0 
           left-[10vw] 
           z-10 
-          h-[320px] 
-          w-[520px] 
-          bg-gradient-to-r 
-          from-violet-900 
-          via-blue-500 
-          to-rose-900 
-          blur-[130px]"
+          h-[220px] 
+          w-[320px] 
+          bg-black/80
+          blur-[130px]
+          "
         />
         <div
           className="absolute bottom-0 
@@ -54,7 +52,9 @@ const Home: NextPage = () => {
           from-violet-900 
           via-cyan-400 
           to-blue-900 
-          blur-[130px]"
+          opacity-25
+          blur-[130px]
+          "
         />
         <div
           className="absolute 
@@ -64,10 +64,12 @@ const Home: NextPage = () => {
           h-[320px] 
           w-[520px] 
           bg-gradient-to-r 
-          from-violet-800 
-          via-violet-500 
-          to-violet-800 
-          blur-[130px]"
+          from-cyan-800 
+          via-cyan-500 
+          to-cyan-800 
+          opacity-75
+          blur-[130px]
+          "
         />
         <div className="py-24">
           <div className="relative z-20  flex w-full flex-col items-center bg-white px-4 py-8 pt-20 sm:w-fit sm:max-w-[520px] sm:rounded-xl sm:border sm:px-5 sm:py-8 sm:pt-20">
@@ -101,88 +103,93 @@ const Home: NextPage = () => {
               >
                 assistência técnica
               </motion.h2>
-              <motion.p 
-              variants={fromBottomSoft}
-              initial="init"
-              animate="final"
-              className="relative mb-8 text-center text-neutral-900">
+              <motion.p
+                variants={fromBottomSoft}
+                initial="init"
+                animate="final"
+                className="relative mb-8 text-center text-neutral-900"
+              >
                 Faço consertos e vendas de celular na região de Canudos/NH, para
                 fazer um orçamento, entre em contato
               </motion.p>
             </div>
 
             {/* Botões */}
-            <motion.div 
-            // initial={{ opacity: 0 }}
-            // whileInView={{ opacity: 1, transition: { duration: 0.7, delay: 0.6, type: "tween" } }}
-            className="flex w-full flex-col gap-4 text-white">
+            <AnimatePresence mode="wait">
               <motion.div
-                variants={buttonsAnimation}
-                initial="init"
-                whileInView="final"
-                className="relative"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.7 }}
+                className="flex w-full flex-col gap-4 text-white"
               >
-                {/* <div className="absolute inset-0 z-10 h-full w-full translate-x-2 translate-y-2 rounded-md bg-black" /> */}
-                <a
-                  href="https://api.whatsapp.com/send?phone=555190069868&text=Oi,%20gostaria%20de%20fazer%20um%20or%C3%A7amento,%20me%20chamo%20"
-                  target="_blank"
+                <motion.div
+                  variants={buttonsAnimation}
+                  initial="init"
+                  whileInView="final"
+                  className="relative"
                 >
-                  <button className="relative z-20 flex w-full grow items-center justify-center rounded-md bg-white bg-gradient-to-r from-green-500 to-green-400 p-4">
-                    <i className="absolute left-4 top-1/2 -translate-y-1/2">
-                      <Whatsapp
-                        width={32}
-                        height={32}
-                      />
-                    </i>
-                    <span className="block">Whatsapp</span>
-                  </button>
-                </a>
-              </motion.div>
-              <motion.div
-                variants={buttonsAnimation}
-                initial="init"
-                whileInView="final"
-                className="relative"
-              >
-                {/* <div className="absolute inset-0 z-10 h-full w-full translate-x-1.5 translate-y-1.5 rounded-md bg-gradient-to-l from-pink-600 to-violet-600" /> */}
-                <a
-                  href="https://www.instagram.com/ike.cell"
-                  target="_blank"
+                  {/* <div className="absolute inset-0 z-10 h-full w-full translate-x-2 translate-y-2 rounded-md bg-black" /> */}
+                  <a
+                    href="https://api.whatsapp.com/send?phone=555190069868&text=Oi,%20gostaria%20de%20fazer%20um%20or%C3%A7amento,%20me%20chamo%20"
+                    target="_blank"
+                  >
+                    <button className="relative z-20 flex w-full grow items-center justify-center rounded-md bg-white bg-gradient-to-r from-green-500 to-green-400 p-4">
+                      <i className="absolute left-4 top-1/2 -translate-y-1/2">
+                        <Whatsapp
+                          width={32}
+                          height={32}
+                        />
+                      </i>
+                      <span className="block">Whatsapp</span>
+                    </button>
+                  </a>
+                </motion.div>
+                <motion.div
+                  variants={buttonsAnimation}
+                  initial="init"
+                  whileInView="final"
+                  className="relative"
                 >
-                  <button className="relative z-20 flex w-full grow items-center justify-center rounded-md bg-white bg-gradient-to-r from-orange-400 via-pink-500 to-violet-500 p-4">
-                    <i className="absolute left-4 top-1/2 -translate-y-1/2">
-                      <Instagram
-                        width={32}
-                        height={32}
-                      />
-                    </i>
-                    <span className="block">Instagram</span>
-                  </button>
-                </a>
-              </motion.div>
-              <motion.div
-                variants={buttonsAnimation}
-                initial="init"
-                whileInView="final"
-                className="relative"
-              >
-                {/* <div className="absolute inset-0 z-10 h-full w-full translate-x-1.5 translate-y-1.5 rounded-md bg-gradient-to-l from-blue-700 to-blue-900" /> */}
-                <a
-                  href="https://www.facebook.com/profile.php?id=100090579578848"
-                  target="_blank"
+                  {/* <div className="absolute inset-0 z-10 h-full w-full translate-x-1.5 translate-y-1.5 rounded-md bg-gradient-to-l from-pink-600 to-violet-600" /> */}
+                  <a
+                    href="https://www.instagram.com/ike.cell"
+                    target="_blank"
+                  >
+                    <button className="relative z-20 flex w-full grow items-center justify-center rounded-md bg-white bg-gradient-to-r from-orange-400 via-pink-500 to-violet-500 p-4">
+                      <i className="absolute left-4 top-1/2 -translate-y-1/2">
+                        <Instagram
+                          width={32}
+                          height={32}
+                        />
+                      </i>
+                      <span className="block">Instagram</span>
+                    </button>
+                  </a>
+                </motion.div>
+                <motion.div
+                  variants={buttonsAnimation}
+                  initial="init"
+                  whileInView="final"
+                  className="relative"
                 >
-                  <button className="relative z-20 flex w-full grow items-center justify-center rounded-md bg-white bg-gradient-to-r from-blue-700 to-blue-500 p-4">
-                    <i className="absolute left-4 top-1/2 -translate-y-1/2">
-                      <Facebook
-                        width={32}
-                        height={32}
-                      />
-                    </i>
-                    <span className="block">Facebook</span>
-                  </button>
-                </a>
+                  {/* <div className="absolute inset-0 z-10 h-full w-full translate-x-1.5 translate-y-1.5 rounded-md bg-gradient-to-l from-blue-700 to-blue-900" /> */}
+                  <a
+                    href="https://www.facebook.com/profile.php?id=100090579578848"
+                    target="_blank"
+                  >
+                    <button className="relative z-20 flex w-full grow items-center justify-center rounded-md bg-white bg-gradient-to-r from-blue-700 to-blue-500 p-4">
+                      <i className="absolute left-4 top-1/2 -translate-y-1/2">
+                        <Facebook
+                          width={32}
+                          height={32}
+                        />
+                      </i>
+                      <span className="block">Facebook</span>
+                    </button>
+                  </a>
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </AnimatePresence>
 
             <div className="mb-14 mt-20 h-[1px] w-full bg-zinc-300" />
 
