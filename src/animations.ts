@@ -31,12 +31,15 @@ export const bandeirasWordAnimation = {
 
 export const buttonsAnimation = {
   init: {
+    opacity: 0,
     scale: 0.935,
   },
   final: {
+    opacity: 1,
     scale: 1,
     transition: {
       duration: 0.5,
+      delay: 0.4,
       type: "tween",
       stiffness: 200,
       // repeat: Infinity,
@@ -61,5 +64,19 @@ export const fromSidesAnimation = (from: "left" | "right") => {
         type: "tween",
       },
     },
+  }
+}
+
+export const fromBottomSoft = {
+  init: {
+    opacity: 0,
+    bottom: -15
+  }, final: {
+    opacity: 1,
+    bottom: 0,
+    transition: {
+      duration: 0.5,
+      delay: 0.2,
+    }
   }
 }

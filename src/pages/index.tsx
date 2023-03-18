@@ -11,6 +11,7 @@ import {
   bandeirasTitleAnimation,
   bandeirasWordAnimation,
   buttonsAnimation,
+  fromBottomSoft,
   fromSidesAnimation,
 } from "~/animations"
 import { bandeirasTitleArray } from "~/texts"
@@ -100,14 +101,21 @@ const Home: NextPage = () => {
               >
                 assistência técnica
               </motion.h2>
-              <p className="mb-8 text-center text-neutral-900">
+              <motion.p 
+              variants={fromBottomSoft}
+              initial="init"
+              animate="final"
+              className="relative mb-8 text-center text-neutral-900">
                 Faço consertos e vendas de celular na região de Canudos/NH, para
                 fazer um orçamento, entre em contato
-              </p>
+              </motion.p>
             </div>
 
             {/* Botões */}
-            <div className="flex w-full flex-col gap-4 text-white">
+            <motion.div 
+            // initial={{ opacity: 0 }}
+            // whileInView={{ opacity: 1, transition: { duration: 0.7, delay: 0.6, type: "tween" } }}
+            className="flex w-full flex-col gap-4 text-white">
               <motion.div
                 variants={buttonsAnimation}
                 initial="init"
@@ -174,7 +182,7 @@ const Home: NextPage = () => {
                   </button>
                 </a>
               </motion.div>
-            </div>
+            </motion.div>
 
             <div className="mb-14 mt-20 h-[1px] w-full bg-zinc-300" />
 
