@@ -1,11 +1,19 @@
 import {
   FacebookSquare as Facebook,
   Instagram,
-  Whatsapp,
+  Whatsapp
 } from "@styled-icons/boxicons-logos"
+import { AnimatePresence, motion } from "framer-motion"
 import { type NextPage } from "next"
 import Head from "next/head"
 import Image from "next/image"
+import {
+  bandeirasTitleAnimation,
+  bandeirasWordAnimation,
+  buttonsAnimation,
+  fromBottomSoft,
+  fromSidesAnimation
+} from "~/animations"
 import { bandeirasTitleArray } from "~/texts"
 
 const Home: NextPage = () => {
@@ -64,100 +72,145 @@ const Home: NextPage = () => {
           "
         />
         <div className="py-24">
-          <div className="relative z-20  flex w-full flex-col items-center px-4 py-8 pt-20 backdrop-blur-2xl sm:w-fit sm:max-w-[520px] sm:rounded-xl sm:px-5 sm:py-8 sm:pt-20">
-            <div className="absolute top-0 -translate-y-1/2">
+          <div className="relative z-20  flex w-full flex-col items-center bg-white px-4 py-8 pt-20 sm:w-fit sm:max-w-[520px] sm:rounded-xl sm:border sm:px-5 sm:py-8 sm:pt-20">
+            <div className="absolute top-0 h-28 w-28 shrink-0 -translate-y-1/2 overflow-hidden rounded-full">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <Image
-                className="shrink-0 rounded-full object-cover"
+              <img
+                className="object-cover"
                 src="/logo-ike-consertos-3.png"
                 alt="Logo do Ike Consertos"
-                width={112}
-                height={112}
               />
             </div>
             <div className="mb-4 flex flex-col items-center">
               <div className="relative">
-                <h1 className="title relative font-tesla text-4xl font-black uppercase leading-6 text-white">
+                <motion.h1
+                  variants={fromSidesAnimation("left")}
+                  initial="init"
+                  whileInView="final"
+                  className="title relative font-tesla text-4xl font-black uppercase leading-6"
+                >
                   Ike
-                </h1>
+                </motion.h1>
                 {/* <span className="absolute bottom-0 left-full block truncate text-neutral-800">
                 Michel Dias
               </span> */}
               </div>
-              <h2 className="relative mb-4 font-semibold text-zinc-300">
+              <motion.h2
+                variants={fromSidesAnimation("right")}
+                initial="init"
+                whileInView="final"
+                className="relative mb-4 font-semibold text-neutral-700"
+              >
                 assistência técnica
-              </h2>
-              <p className="relative mb-8 text-center text-zinc-100">
+              </motion.h2>
+              <motion.p
+                variants={fromBottomSoft}
+                initial="init"
+                animate="final"
+                className="relative mb-8 text-center text-neutral-900"
+              >
                 Faço consertos e vendas de celular na região de Canudos/NH, para
                 fazer um orçamento, entre em contato
-              </p>
+              </motion.p>
             </div>
 
             {/* Botões */}
-            <div className="flex w-full flex-col gap-4 text-white">
-              <div className="relative">
-                {/* <div className="absolute inset-0 z-10 h-full w-full translate-x-2 translate-y-2 rounded-md bg-black" /> */}
-                <a
-                  href="https://api.whatsapp.com/send?phone=555190069868&text=Oi,%20gostaria%20de%20fazer%20um%20or%C3%A7amento,%20me%20chamo%20"
-                  target="_blank"
+            <AnimatePresence mode="wait">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.7 }}
+                className="flex w-full flex-col gap-4 text-white"
+              >
+                <motion.div
+                  variants={buttonsAnimation}
+                  initial="init"
+                  whileInView="final"
+                  className="relative"
                 >
-                  <button className="relative z-20 flex w-full grow items-center justify-center rounded-md bg-white bg-gradient-to-r from-green-500 to-green-400 p-4">
-                    <i className="absolute left-4 top-1/2 -translate-y-1/2">
-                      <Whatsapp
-                        width={32}
-                        height={32}
-                      />
-                    </i>
-                    <span className="block">Whatsapp</span>
-                  </button>
-                </a>
-              </div>
-              <div className="relative">
-                {/* <div className="absolute inset-0 z-10 h-full w-full translate-x-1.5 translate-y-1.5 rounded-md bg-gradient-to-l from-pink-600 to-violet-600" /> */}
-                <a
-                  href="https://www.instagram.com/ike.cell"
-                  target="_blank"
+                  {/* <div className="absolute inset-0 z-10 h-full w-full translate-x-2 translate-y-2 rounded-md bg-black" /> */}
+                  <a
+                    href="https://api.whatsapp.com/send?phone=555190069868&text=Oi,%20gostaria%20de%20fazer%20um%20or%C3%A7amento,%20me%20chamo%20"
+                    target="_blank"
+                  >
+                    <button className="relative z-20 flex w-full grow items-center justify-center rounded-md bg-white bg-gradient-to-r from-green-500 to-green-400 p-4">
+                      <i className="absolute left-4 top-1/2 -translate-y-1/2">
+                        <Whatsapp
+                          width={32}
+                          height={32}
+                        />
+                      </i>
+                      <span className="block">Whatsapp</span>
+                    </button>
+                  </a>
+                </motion.div>
+                <motion.div
+                  variants={buttonsAnimation}
+                  initial="init"
+                  whileInView="final"
+                  className="relative"
                 >
-                  <button className="relative z-20 flex w-full grow items-center justify-center rounded-md bg-white bg-gradient-to-r from-orange-400 via-pink-500 to-violet-500 p-4">
-                    <i className="absolute left-4 top-1/2 -translate-y-1/2">
-                      <Instagram
-                        width={32}
-                        height={32}
-                      />
-                    </i>
-                    <span className="block">Instagram</span>
-                  </button>
-                </a>
-              </div>
-              <div className="relative">
-                {/* <div className="absolute inset-0 z-10 h-full w-full translate-x-1.5 translate-y-1.5 rounded-md bg-gradient-to-l from-blue-700 to-blue-900" /> */}
-                <a
-                  href="https://www.facebook.com/profile.php?id=100090579578848"
-                  target="_blank"
+                  {/* <div className="absolute inset-0 z-10 h-full w-full translate-x-1.5 translate-y-1.5 rounded-md bg-gradient-to-l from-pink-600 to-violet-600" /> */}
+                  <a
+                    href="https://www.instagram.com/ike.cell"
+                    target="_blank"
+                  >
+                    <button className="relative z-20 flex w-full grow items-center justify-center rounded-md bg-white bg-gradient-to-r from-orange-400 via-pink-500 to-violet-500 p-4">
+                      <i className="absolute left-4 top-1/2 -translate-y-1/2">
+                        <Instagram
+                          width={32}
+                          height={32}
+                        />
+                      </i>
+                      <span className="block">Instagram</span>
+                    </button>
+                  </a>
+                </motion.div>
+                <motion.div
+                  variants={buttonsAnimation}
+                  initial="init"
+                  whileInView="final"
+                  className="relative"
                 >
-                  <button className="relative z-20 flex w-full grow items-center justify-center rounded-md bg-white bg-gradient-to-r from-blue-700 to-blue-500 p-4">
-                    <i className="absolute left-4 top-1/2 -translate-y-1/2">
-                      <Facebook
-                        width={32}
-                        height={32}
-                      />
-                    </i>
-                    <span className="block">Facebook</span>
-                  </button>
-                </a>
-              </div>
-            </div>
+                  {/* <div className="absolute inset-0 z-10 h-full w-full translate-x-1.5 translate-y-1.5 rounded-md bg-gradient-to-l from-blue-700 to-blue-900" /> */}
+                  <a
+                    href="https://www.facebook.com/profile.php?id=100090579578848"
+                    target="_blank"
+                  >
+                    <button className="relative z-20 flex w-full grow items-center justify-center rounded-md bg-white bg-gradient-to-r from-blue-700 to-blue-500 p-4">
+                      <i className="absolute left-4 top-1/2 -translate-y-1/2">
+                        <Facebook
+                          width={32}
+                          height={32}
+                        />
+                      </i>
+                      <span className="block">Facebook</span>
+                    </button>
+                  </a>
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
 
             <div className="mb-14 mt-20 h-[1px] w-full bg-zinc-300" />
 
             {/* Bandeiras */}
-            <div className="flex flex-col border-y-zinc-300">
+            <div className="flex flex-col border-y-neutral-300">
               <div className="">
-                <h2 className="title text-center text-3xl font-semibold tracking-wide">
+                <motion.h2
+                  variants={bandeirasTitleAnimation}
+                  initial="init"
+                  whileInView="final"
+                  className="title text-center text-3xl font-semibold tracking-wide"
+                >
                   {bandeirasTitleArray.map((w, i, a) => (
-                    <span key={w}>{i === a.length - 1 ? w : w + " "}</span>
+                    <motion.span
+                      variants={bandeirasWordAnimation}
+                      key={w}
+                    >
+                      {i === a.length - 1 ? w : w + " "}
+                    </motion.span>
                   ))}
-                </h2>
+                </motion.h2>
               </div>
               <div className="relative my-8">
                 <ul className="flex flex-wrap justify-evenly gap-3">
@@ -314,7 +367,7 @@ const Home: NextPage = () => {
                 </ul>
               </div>
               <div>
-                <p className="text-center text-zinc-100">
+                <p className="text-center text-neutral-900">
                   Usamos a maquinha do mercado pago, aceitamos todas as
                   bandeiras.
                 </p>
